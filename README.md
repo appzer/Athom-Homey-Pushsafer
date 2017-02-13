@@ -3,7 +3,7 @@
 
 # Pushsafer notifications for Athom Homey
 
-This app lets you send Pushsafer notifications to use in flows on a Homey device (by Athom).
+This app lets you send [pushsafer.com](https://www.pushsafer.com/) notifications to use in flows on a Homey device (by Athom).
 
 1. Go to Pushsafer.com and login
 2. Grab your user key or alias key (with predefined device, sound, icon & vibration)
