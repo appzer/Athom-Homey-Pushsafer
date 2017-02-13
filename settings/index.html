@@ -1,1 +1,139 @@
+<!doctype html>
+<html>
+<head>
+  <script type="text/javascript" src="/manager/webserver/assets/js/jquery.js"></script>
+</head>
+<body>
 
+<h1 data-i18n="settings.title"></h1>
+<p data-i18n="settings.intro"></p>
+<p data-i18n="settings.tutorial"></p>
+
+<fieldset>
+    <legend data-i18n="settings.legend"></legend>
+
+    <style>
+      .form_label {
+        width: 100px !important;
+        display: block !important;
+        margin-right: 20px;
+      }
+
+      .form_input {
+        width: 250px !important;
+        display: block !important;
+      }
+
+      select {
+        padding: .5em .75em;
+        vertical-align: middle;
+        font-size: 12px;
+        font-family: inherit;
+        font-weight: inherit;
+        border: 1px solid #aaa;
+        border-radius: 2px;
+        width:270px !important;
+      }
+
+      button {
+        margin-right:15px;
+      }
+    </style>
+
+
+    <div class="field row">
+        <label class="form_label" for="pushsafer_user" data-i18n="settings.pushsaferUser"></label>
+        <input class="form_input" id="pushsafer_user" type="text" value="" />
+    </div>
+    <input type="checkbox" id="pushsafer_ledring" value="pushsafer_ledring"> <label for="pushsafer_ledring">Light led ring upon sending notification?</label>
+    <br>
+    <br>
+    <button id="savePushsafer" class="left" data-i18n="settings.savePushsafer" onclick="savePushsafer()"></button>
+    <button id="clearPushsafer" class="left" data-i18n="settings.clearPushsafer" onclick="clearPushsaferSettings()"></button>
+
+</fieldset>
+
+
+
+<script type="text/javascript">
+
+    var currentPushsaferAccount;
+
+    // Initialize Homey
+    function onHomeyReady() {
+
+
+      // Ready
+      Homey.ready();
+
+      // Get saved account settings
+      Homey.get("pushsaferaccount", function (err, value) {
+        if (value != null) {
+
+			// Set current accounts
+			currentPushsaferAccount = value;
+
+         	document.getElementById('pushsafer_user').value = currentPushsaferAccount['user'];
+          if(currentPushsaferAccount['ledring'] == true) {
+            document.getElementById('pushsafer_ledring').checked = true;
+          } else {
+            document.getElementById('pushsafer_ledring').checked = false;
+          }
+        } else {
+        }
+
+      });
+
+
+
+    }
+
+
+    function clearPushsaferSettings() {
+
+      document.getElementById('pushsafer_user').value = '';
+
+    }
+
+
+    // Save updated settings
+    function savePushsafer() {
+
+
+		// Build array
+        currentPushsaferAccount = {
+          'user': document.getElementById('pushsafer_user').value,
+          'ledring': document.getElementById('pushsafer_ledring').checked
+        };
+
+        // Show clear
+        $('#clearPushsafer').css('display', 'block');
+
+
+      // Update settings
+      Homey.set("pushsaferaccount", currentPushsaferAccount, function (err) {
+          if (err) {
+              // Display failed registration
+              document.getElementById('savePushsafer').style['background-color'] = 'lightcoral';
+              document.getElementById('savePushsafer').style['color'] = 'black';
+              document.getElementById('savePushsafer').innerHTML = __("settings.notsavedPushsafer");
+          }
+      });
+
+      // Display successful registration
+      document.getElementById('savePushsafer').style['background-color'] = 'lightgreen';
+      document.getElementById('savePushsafer').style['color'] = 'white';
+      document.getElementById('savePushsafer').innerHTML = __("settings.savePushsafer");
+
+      setTimeout(function () {
+          // Reset button
+          document.getElementById('savePushsafer').style['background-color'] = '';
+          document.getElementById('savePushsafer').style['color'] = 'black';
+          document.getElementById('savePushsafer').innerHTML = __("settings.savePushsafer");
+      }, 3000);
+
+      onHomeyReady();
+    }
+</script>
+</body>
+</html>
