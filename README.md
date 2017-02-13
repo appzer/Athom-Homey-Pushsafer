@@ -5,8 +5,8 @@
 
 This app lets you send [pushsafer.com](https://www.pushsafer.com/) notifications to use in flows on a Homey device (by Athom).
 
-1. Go to Pushsafer.com and login
-2. Grab your user key or alias key (with predefined device, sound, icon & vibration)
+1. Go to [pushsafer.com](https://www.pushsafer.com/) and login
+2. Grab your user key or alias key (with predefined device, sound, icon & vibration) from the dashboard
 3. Go to settings on your Homey, and under Pushsafer Notifications fill in your private or alias key and save.
 
 ### Changelog
