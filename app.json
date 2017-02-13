@@ -1,0 +1,79 @@
+{
+    "id": "de.appzer.pushsafer",
+    "name": {
+        "en": "Pushsafer Notifications"
+    },
+    "version": "0.0.1",
+    "compatibility": "0.x || 1.x",
+    "author": {
+        "name": "Kevin Siml",
+        "email": "support@pushsafer.com"
+    },
+    "images": {
+      "large": "./assets/images/large.jpg",
+      "small": "./assets/images/small.jpg"
+    },
+    "category": "internet",
+    "description": {
+    "en": "Pushsafer notifications for Homey",
+	"de": "Pushsafer Benachrichtungen für Homey",
+    "nl": "Pushsafer notificatie voor Homey"
+    },
+    "permissions": ["homey:manager:ledring"
+    ],
+    "flow": {
+        "actions": [
+        {
+            "id": "pushsaferSend",
+            "title": {
+                "en": "Pushsafer notification",
+				"de": "Pushsafer Benachrichtungen",
+                "nl": "Pushsafer notificatie"
+            },
+            "args": [
+              {
+                  "name":"message",
+                  "type":"text",
+                  "placeholder":{
+                     "en":"Message",
+					 "de":"Nachricht",
+                     "nl":"Bericht"
+                  }
+               }
+            ]
+        },
+        {
+            "id": "pushsaferSend_device",
+            "title": {
+                "en": "Pushsafer notification (Device)",
+				"de": "Pushsafer Benachrichtung (Gerät)",
+                "nl": "Pushsafer notificatie (Apparaat)"
+            },
+            "args": [
+              {
+                  "name":"device",
+                  "type":"text",
+                  "placeholder":{
+                     "en":"Device or Device Group ID",
+					 "de":"Geräte oder Geräte Gruppen ID",
+                     "nl":"Apparaat of Apparaat groep ID"
+                  }
+            	},
+            	{
+                  "name":"message",
+                  "type":"text",
+                  "placeholder":{
+                     "en":"Message",
+					 "en":"Nachricht",
+                     "nl":"Bericht"
+                  }
+               }
+            ]
+        }
+      ]
+    },
+    "dependencies": {
+    		"pushsafer-notifications": "*",
+    		"http.min": "*"
+    }
+}
