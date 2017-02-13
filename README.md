@@ -13,3 +13,5 @@ This app lets you send Pushsafer notifications to use in flows on a Homey device
 
 0.0.1
 - initial release
+
+Forked from and original created by: [PandaNL](https://github.com/PandaNL/nl.tonversteeg.pushover)
