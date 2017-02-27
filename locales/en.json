@@ -1,14 +1,14 @@
 {
 	"settings": {
-		"title": "Provide Pushsafer settings.",
-		"intro": "Provide all your settings for the Pushsafer service below.",
-		"tutorial": "Go to pushsafer.com to get your Private or Alias Key",
-		"error": "An error has occurred.",
+	"title": "Provide Pushsafer settings.",
+	"intro": "Provide all your settings for the Pushsafer service below.",
+	"tutorial": "Go to pushsafer.com to get your Private or Alias Key",
+	"error": "An error has occurred.",
       	"pushsaferUser": "Private or Alias key",
       	"savePushsafer": "Save",
-		"savedPushsafer": "Saved",
-		"notsavedPushsafer": "Failed...",
-		"clearPushsafer": "Clear",
+	"savedPushsafer": "Saved",
+	"notsavedPushsafer": "Failed...",
+	"clearPushsafer": "Clear",
       	"legend": "Pushsafer Account"
-  }
+	}
 }
