@@ -48,6 +48,8 @@
     <input type="checkbox" id="pushsafer_ledring" value="pushsafer_ledring"> <label for="pushsafer_ledring">Light led ring upon sending notification?</label>
     <br>
     <br>
+    <label id="pushsafer_validation"></label>
+    <br>
     <button id="savePushsafer" class="left" data-i18n="settings.savePushsafer" onclick="savePushsafer()"></button>
     <button id="clearPushsafer" class="left" data-i18n="settings.clearPushsafer" onclick="clearPushsaferSettings()"></button>
 
@@ -58,6 +60,7 @@
 <script type="text/javascript">
 
     var currentPushsaferAccount;
+    var validationStatus;
 
     // Initialize Homey
     function onHomeyReady() {
@@ -87,6 +90,21 @@
 
 
     }
+
+
+    function validation () {
+      Homey.get("pushsafervalidation", function (err, value){
+
+        if (value == 'Validation successful'){
+          document.getElementById('pushsafer_validation').innerHTML = value;
+          document.getElementById('pushsafer_validation').style.color = "lightgreen";
+        } else if (value == 'Validation failed, bad private key!'){
+          document.getElementById('pushsafer_validation').innerHTML = value;
+          document.getElementById('pushsafer_validation').style.color = "red";
+        }
+      });
+    }
+
 
 
     function clearPushsaferSettings() {
@@ -133,7 +151,10 @@
       }, 3000);
 
       onHomeyReady();
+
+      setTimeout(validation, 2000);
     }
 </script>
+
 </body>
 </html>
