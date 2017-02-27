@@ -11,6 +11,9 @@ This app lets you send [pushsafer.com](https://www.pushsafer.com/) notifications
 
 ### Changelog
 
+0.0.2
+- fixed some issues
+
 0.0.1
 - initial release
 
