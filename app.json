@@ -3,7 +3,7 @@
     "name": {
         "en": "Pushsafer Notifications"
     },
-    "version": "0.0.1",
+    "version": "0.0.2",
     "compatibility": "0.x || 1.x",
     "author": {
         "name": "Kevin Siml",
@@ -27,7 +27,7 @@
             "id": "pushsaferSend",
             "title": {
                 "en": "Pushsafer notification",
-				"de": "Pushsafer Benachrichtungen",
+				"en": "Pushsafer Benachrichtungen",
                 "nl": "Pushsafer notificatie"
             },
             "args": [
@@ -39,7 +39,18 @@
 					 "de":"Nachricht",
                      "nl":"Bericht"
                   }
-               }
+               },
+               {
+                "name": "priority",
+                "type": "dropdown",
+                "values": [
+                  { "id": "Normal", "label": { "en": "Normal" }},
+                  { "id": "Lowest", "label": { "en": "Lowest" }},
+                  { "id": "Low", "label": { "en": "Low" }},
+                  { "id": "High", "label": { "en": "High" }}
+                ],
+                "placeholder": { "en": "Priority" }
+              }
             ]
         },
         {
@@ -52,11 +63,11 @@
             "args": [
               {
                   "name":"device",
-                  "type":"text",
+                  "type":"autocomplete",
                   "placeholder":{
                      "en":"Device or Device Group ID",
-					 "de":"Geräte oder Geräte Gruppen ID",
-                     "nl":"Apparaat of Apparaat groep ID"
+					 "de":"Device name",
+                     "nl":"Apparaat naam"
                   }
             	},
             	{
@@ -67,7 +78,18 @@
 					 "en":"Nachricht",
                      "nl":"Bericht"
                   }
-               }
+               },
+               {
+                "name": "priority",
+                "type": "dropdown",
+                "values": [
+                  { "id": "Normal", "label": { "en": "Normal" }},
+                  { "id": "Lowest", "label": { "en": "Lowest" }},
+                  { "id": "Low", "label": { "en": "Low" }},
+                  { "id": "High", "label": { "en": "High" }}
+                ],
+                "placeholder": { "en": "Priority" }
+              }
             ]
         }
       ]

@@ -4,7 +4,6 @@ var push = require('pushsafer-notifications');
 var http = require('http.min');
 var account = [];
 var request = [];
-var ;
 var devices = null;
 var pushsaferUser = null;
 var ledringPreference = false;
@@ -24,15 +23,15 @@ function buildPushsaferArray() {
 }
 
 Homey.manager('flow').on('action.pushsaferSend', function( callback, args ){
-		var tempUser = pushsaferUser;
+	  var tempUser = pushsaferUser;
 		var pMessage = args.message;
 		if( typeof pMessage == 'undefined' ||pMessage == null || pMessage == '') return callback( new Error("Message can not be empty") );
 		pushsaferSend ( tempUser, pMessage);
-	callback( null, true ); // we've fired successfully
+    callback( null, true ); // we've fired successfully
 });
 
 Homey.manager('flow').on('action.pushsaferSend_device', function( callback, args ){
-		var tempUser = pushsaferUser;
+	  var tempUser = pushsaferUser;
 		var pMessage = args.message;
 		if( typeof pMessage == 'undefined' ||pMessage == null || pMessage == '') return callback( new Error("Message can not be empty") );
 		var pDevice = args.device.name;
@@ -92,11 +91,11 @@ function pushsaferSend_device ( pUser, pMessage, pDevice) {
 	});
 
 	var msg = {
-		// These values correspond to the parameters detailed on https://www.pushsafer.com/en/pushapi
+		// These values correspond to the parameters detailed on https://pushsafer.net/api
 		// 'message' is required. All other values are optional.
-		m: pMessage,   // required
-		t: "Homey",
-		d: pDevice
+		message: pMessage,   // required
+		title: "Homey",
+		device: pDevice
 	};
 
 	p.send( msg, function( err, result ) {
