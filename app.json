@@ -3,7 +3,7 @@
     "name": {
         "en": "Pushsafer Notifications"
     },
-    "version": "0.0.2",
+    "version": "0.0.3",
     "compatibility": "0.x || 1.x",
     "author": {
         "name": "Kevin Siml",
@@ -39,57 +39,7 @@
 					 "de":"Nachricht",
                      "nl":"Bericht"
                   }
-               },
-               {
-                "name": "priority",
-                "type": "dropdown",
-                "values": [
-                  { "id": "Normal", "label": { "en": "Normal" }},
-                  { "id": "Lowest", "label": { "en": "Lowest" }},
-                  { "id": "Low", "label": { "en": "Low" }},
-                  { "id": "High", "label": { "en": "High" }}
-                ],
-                "placeholder": { "en": "Priority" }
-              }
-            ]
-        },
-        {
-            "id": "pushsaferSend_device",
-            "title": {
-                "en": "Pushsafer notification (Device)",
-				"de": "Pushsafer Benachrichtung (Gerät)",
-                "nl": "Pushsafer notificatie (Apparaat)"
-            },
-            "args": [
-              {
-                  "name":"device",
-                  "type":"autocomplete",
-                  "placeholder":{
-                     "en":"Device or Device Group ID",
-					 "de":"Device name",
-                     "nl":"Apparaat naam"
-                  }
-            	},
-            	{
-                  "name":"message",
-                  "type":"text",
-                  "placeholder":{
-                     "en":"Message",
-					 "en":"Nachricht",
-                     "nl":"Bericht"
-                  }
-               },
-               {
-                "name": "priority",
-                "type": "dropdown",
-                "values": [
-                  { "id": "Normal", "label": { "en": "Normal" }},
-                  { "id": "Lowest", "label": { "en": "Lowest" }},
-                  { "id": "Low", "label": { "en": "Low" }},
-                  { "id": "High", "label": { "en": "High" }}
-                ],
-                "placeholder": { "en": "Priority" }
-              }
+               }
             ]
         }
       ]
