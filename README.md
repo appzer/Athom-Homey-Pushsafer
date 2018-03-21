@@ -11,6 +11,11 @@ This app lets you send [pushsafer.com](https://www.pushsafer.com/) notifications
 
 ### Changelog
 
+0.0.4
+- Homey SDK v2 ready
+- image support
+- all Pushafer parameters available (icon, icon color, sound, vibration, url, url title, device, time2live)
+
 0.0.3
 - fixed some issues
 
@@ -19,5 +24,3 @@ This app lets you send [pushsafer.com](https://www.pushsafer.com/) notifications
 
 0.0.1
 - initial release
-
-Forked from and original created by: [PandaNL](https://github.com/PandaNL/nl.tonversteeg.pushover)
