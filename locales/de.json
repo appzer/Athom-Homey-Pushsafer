@@ -1,14 +1,14 @@
 {
 	"settings": {
-	"title": "Pushsafer-Einstellungen vornehmen.",
-	"intro": "Trage alle Einstellungen für den Pushsafer-Dienst unten ein.",
-	"tutorial": "Gehe zu pushsafer.com um einen Privaten oder Alias Schlüssel zu erhalten.",
-	"error": "Ein Fehler ist aufgetreten.",
-      	"pushsaferUser": "Private oder Alias Schlüssel",
+		"title": "Pushsafer-Einstellungen vornehmen.",
+		"intro": "Trage alle Einstellungen für den Pushsafer-Dienst unten ein.",
+		"tutorial": "Gehe auf pushsafer.com um deinen Privaten oder Alias Schlüssel zu erhalten",
+		"error": "Ein Fehler ist aufgetreten.",
+      	"pushsaferUser": "Privater oder Alias Schlüssel",
       	"savePushsafer": "Speichern",
-	"savedPushsafer": "Gespeichert",
-	"notsavedPushsafer": "Fehlgeschlagen...",
-	"clearPushsafer": "Löschen",
+		"savedPushsafer": "Gespeichert",
+		"notsavedPushsafer": "Fehlgeschlagen...",
+		"clearPushsafer": "Löschen",
       	"legend": "Pushsafer Account"
-	}
+  }
 }

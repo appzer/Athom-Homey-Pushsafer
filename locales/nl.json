@@ -1,14 +1,14 @@
 {
 	"settings": {
-	"title": "Voer Pushsafer instellingen in.",
-	"intro": "Voer al je instellingen in voor de Pushsafer service.",
-	"tutorial": "Ga naar pushsafer.com om je gebruikers sleutel en een app api sleutel voor Homey aan te maken",
-	"error": "Er heeft zich een fout voorgedaan.",
-      	"pushsaferUser": "Gebruiker sleutel",
+		"title": "Voer Pushsafer instellingen in.",
+		"intro": "Voer al je instellingen in voor de Pushsafer service.",
+		"tutorial": "Ga naar pushsafer.com om uw privé- of alias-sleutel te krijgen",
+		"error": "Er heeft zich een fout voorgedaan.",
+      	"pushsaferUser": "Privé- of Alias-sleutel",
       	"savePushsafer": "Opslaan",
-	"savedPushsafer": "Opgeslagen",
-	"notsavedPushsafer": "Mislukt...",
-	"clearPushsafer": "Leeg",
+		"savedPushsafer": "Opgeslagen",
+		"notsavedPushsafer": "Mislukt...",
+		"clearPushsafer": "Leeg",
       	"legend": "Pushsafer Account"
-	}
+  }
 }
