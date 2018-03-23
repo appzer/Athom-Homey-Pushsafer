@@ -1,7 +1,8 @@
 <!doctype html>
 <html>
 <head>
-  <script type="text/javascript" src="/manager/webserver/assets/js/jquery.js"></script>
+	<script type="text/javascript" src="/manager/webserver/assets/js/jquery.js"></script>
+	<script type="text/javascript" src="/homey.js" data-origin="settings"></script>
 </head>
 <body>
 
@@ -50,7 +51,7 @@
     <br>
     <label id="pushsafer_validation"></label>
     <br>
-    <button id="savePushsafer" class="left" data-i18n="settings.savePushsafer" onclick="savePushsafer()"></button>
+	<button type="submit" id="submit" data-i18n="settings.savePushsafer"></button>
     <button id="clearPushsafer" class="left" data-i18n="settings.clearPushsafer" onclick="clearPushsaferSettings()"></button>
 
 </fieldset>
@@ -63,7 +64,7 @@
     var validationStatus;
 
     // Initialize Homey
-    function onHomeyReady() {
+    function onHomeyReady(Homey) {
 
 
       // Ready
@@ -86,25 +87,24 @@
         }
 
       });
-
-
-
+	  
+	  	$('#submit').on('click', function() {
+			savePushsafer(Homey);
+	    });
     }
 
-
-    function validation () {
+    function validation (Homey) {
       Homey.get("pushsafervalidation", function (err, value){
 
         if (value == 'Validation successful'){
           document.getElementById('pushsafer_validation').innerHTML = value;
           document.getElementById('pushsafer_validation').style.color = "lightgreen";
-        } else if (value == 'Validation failed, bad private key!'){
+        } else if (value == 'Validation failed, bad private or alias key!'){
           document.getElementById('pushsafer_validation').innerHTML = value;
           document.getElementById('pushsafer_validation').style.color = "red";
         }
       });
     }
-
 
 
     function clearPushsaferSettings() {
@@ -115,7 +115,7 @@
 
 
     // Save updated settings
-    function savePushsafer() {
+    function savePushsafer(Homey) {
 
 
 		// Build array
@@ -141,18 +141,18 @@
       // Display successful registration
       document.getElementById('savePushsafer').style['background-color'] = 'lightgreen';
       document.getElementById('savePushsafer').style['color'] = 'white';
-      document.getElementById('savePushsafer').innerHTML = __("settings.savePushsafer");
+      document.getElementById('savePushsafer').innerHTML = __("settings.savedPushsafer");
 
       setTimeout(function () {
           // Reset button
           document.getElementById('savePushsafer').style['background-color'] = '';
           document.getElementById('savePushsafer').style['color'] = 'black';
-          document.getElementById('savePushsafer').innerHTML = __("settings.savePushsafer");
+          document.getElementById('savePushsafer').innerHTML = __("settings.savedPushsafer");
       }, 3000);
 
       onHomeyReady();
 
-      setTimeout(validation, 2000);
+      setTimeout(validation(Homey), 2000);
     }
 </script>
 
