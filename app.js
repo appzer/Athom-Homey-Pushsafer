@@ -1,125 +1,190 @@
-"use strict";
+'use strict';
 
-var push = require('pushsafer-notifications');
-var http = require('http.min');
-var account = [];
-var request = [];
-var pushsaferUser = null;
-var ledringPreference = false;
+const Homey = require('homey');
+let push = require('pushsafer-notifications');
+let http = require('http.min');
+let request = require('request').defaults({ "strictSSL": false, "encoding": null });
+let account = [];
+let validation;
+let devices = null;
+let pushsaferUser = null;
+let ledringPreference = false;
+let InsightLog = null;
 
-// Get accounts from homey settings page.
-function buildPushsaferArray() {
-	account = null;
-	account = Homey.manager('settings').get('pushsaferaccount');
+class MyApp extends Homey.App {
+	
+	onInit() {
 
-	if (account != null) {
-		pushsaferUser = account['user'];
-		ledringPreference = account['ledring'];
-		Homey.log("Pushsafer - Account configured successful");
-	} else {
-		Homey.log("Pushsafer - No account configured yet");
+        // Start building Pushsafer accounts array
+		buildPushsaferArray();
+
+		createInsightlog();
+
+		Homey.ManagerSettings.on('set', function (settingname) {
+
+			if (settingname == 'pushsaferaccount') {
+				console.log('Pushsafer - Account has been changed/updated...');
+				buildPushsaferArray();
+			}
+		});
+
+        let sendMessage = new Homey.FlowCardAction('pushsaferSend');
+		sendMessage
+		.register()
+		.registerRunListener(( args, state ) => {
+			if (typeof validation == 'undefined' || validation == '0') return new Error("Pushsafer private or alias key not configured or valid under settings!");
+				let tempUser = pushsaferUser;
+				let pMessage = args.message;
+				let title = args.title;
+				let device = args.device;
+				let icon = args.icon;
+				let iconcolor = args.iconcolor;
+				let sound = args.sound;
+				let vibration = args.vibration;
+				let url = args.url;
+				let urltitle = args.urltitle;
+				let time2live = args.time2live;
+				if (typeof pMessage == 'undefined' || pMessage == null || pMessage == '') return new Error("Message can not be empty");
+				return pushsaferSend(tempUser, pMessage, title, device, icon, iconcolor, sound, vibration, url, urltitle, time2live, '');
+		})
+
+		let sendImage = new Homey.FlowCardAction('pushsaferSendImage');
+		sendImage
+		.register()
+		.registerRunListener(( args, state) => {
+			if (typeof validation == 'undefined' || validation == '0') return callback(new Error("Pushsafer private or alias key not configured or valid under settings!"));
+				let tempUser = pushsaferUser;
+				let pMessage = args.message;
+				let title = args.title;
+				let device = args.device;
+				let icon = args.icon;
+				let iconcolor = args.iconcolor;
+				let sound = args.sound;
+				let vibration = args.vibration;
+				let url = args.url;
+				let urltitle = args.urltitle;
+				let time2live = args.time2live;
+				if (typeof pMessage == 'undefined' || pMessage == null || pMessage == '') return new Error("Message can not be empty");
+				
+				let imageurl = args.imageurl;
+
+				request.get(imageurl, function (error, response, body) {
+					if (!error && response.statusCode == 200) {
+						let base64ImageData = "data:" + response.headers["content-type"] + ";base64," + new Buffer(body).toString('base64');
+						console.log('ImageData:'+base64ImageData);
+						return pushsaferSend(tempUser, pMessage, title, device, icon, iconcolor, sound, vibration, url, urltitle, time2live, base64ImageData);
+					} else {
+						console.log(error)
+					}
+				})
+		})
 	}
 }
 
-Homey.manager('flow').on('action.pushsaferSend', function( callback, args ){
-	  var tempUser = pushsaferUser;
-		var pMessage = args.message;
-		if( typeof pMessage == 'undefined' ||pMessage == null || pMessage == '') return callback( new Error("Message can not be empty") );
-		pushsaferSend ( tempUser, pMessage);
-    callback( null, true ); // we've fired successfully
-});
-
-
 // Send notification with parameters
-function pushsaferSend ( pUser, pMessage) {
-	if (pUser != ""){
-	var p = new push( {
-		k: pUser,
-	});
+function pushsaferSend(pUser, pMessage, title, device, icon, iconcolor, sound, vibration, url, urltitle, time2live, image) {
+	if (pUser != "") {
 
-	var msg = {
-		// These values correspond to the parameters detailed on https://pushsafer.net/api
-		// 'message' is required. All other values are optional.
-		m: pMessage,   // required
-		t: "Homey"
-	};
-
-	p.send( msg, function( err, result ) {
-		if ( err ) {
-			throw err;
-		} else {
-			if (ledringPreference == true){
-				LedAnimate("green", 3000);
-			}
+		let p = new push({
+			k: pUser,
+		});
+		
+		if (title == "") {
+			title = "Homey";
 		}
-		Homey.log( result );
-		//Add send notification to Insights
-		Homey.manager('insights').createEntry( 'pushsafer_sendNotifications', 1, new Date(), function(err, success){
-        if( err ) return Homey.error(err);
-    });
-	});
+
+		let msg = {
+			// These values correspond to the parameters detailed on https://www.pushsafer.com/en/pushapi
+			// 'message' is required. All other values are optional.
+			m: pMessage,   // required
+			t: title,
+			d: device,
+			i: icon,
+			c: iconcolor,
+			s: sound,
+			v: vibration,
+			u: url,
+			ut: urltitle,
+			l: time2live,
+			p: image
+		};
+
+		p.send(msg, function (err, result) {
+			if (err) {
+				if (ledringPreference == true) {
+					LedAnimate("red", 3000);
+				}
+				throw err;
+			} else {
+				if (ledringPreference == true) {
+					LedAnimate("green", 3000);
+				}
+			}
+			console.log(result);
+			//Add send notification to Insights
+			InsightEntry(1, new Date());
+		});
 	} else {
-		if (ledringPreference == true){
+		if (ledringPreference == true) {
 			LedAnimate("red", 3000);
 		}
 	}
 }
 
-function LedAnimate(colorInput, duration) {
-Homey.manager('ledring').animate(
-    // animation name (choose from loading, pulse, progress, solid)
-    'pulse',
+function InsightEntry(message, date)
+{
 
-    // optional animation-specific options
-    {
-
-	   color: colorInput,
-        rpm: 300 // change rotations per minute
-    },
-
-    // priority
-    'INFORMATIVE',
-
-    // duration
-    duration,
-
-    // callback
-    function( err, success ) {
-        if( err ) return Homey.error(err);
-
-    }
-);
+	Homey.ManagerInsights.getLog('pushsafer_sendNotifications').then(logs => {
+		logs.createEntry(message,date).catch( err => {
+			console.error(err);
+		});
+	}).catch(err => {
+	console.log("Cannot Make insight entry")
+	});
 }
 
 // Create Insight log
 function createInsightlog() {
-	Homey.manager('insights').createLog( 'pushsafer_sendNotifications', {
-    label: {
-        en: 'Send Notifications'
-    },
-    type: 'number',
-    units: {
-        en: 'notifications'
-    },
-    decimals: 0
+	Homey.ManagerInsights.createLog('pushsafer_sendNotifications', {
+		label: {
+			en: 'Send Notifications'
+		},
+		type: 'number',
+		units: {
+			en: 'notifications'
+		},
+		decimals: 0
+	}).then(function (err){
+	console.log("Log Created")
+	}).catch(function (err)
+{
+	console.log("Log Not created. " + err)
 });
 }
 
-var self = module.exports = {
-	init: function () {
+function buildPushsaferArray() {
+	account = null;
+	account = Homey.ManagerSettings.get('pushsaferaccount');
 
-		// Start building Pushsafer accounts array
-		buildPushsaferArray();
-
-		createInsightlog();
-
-		Homey.manager('settings').on( 'set', function(settingname){
-
-			if(settingname == 'pushsaferaccount') {
-			Homey.log('Pushsafer - Account has been changed/updated...');
-			buildPushsaferArray();
-		}
-		});
-
+	if (account != null) {
+		pushsaferUser = account['user'];
+		ledringPreference = account['ledring'];
+		validation = 1;
+		console.log("Pushsafer - Account configured successful");
+	} else {
+		validation = 0;
+		console.log("Pushsafer - No account configured yet");
 	}
 }
+
+function logValidation() {
+	let validatedSuccess = "Validation successful"
+	let validatedFailed = "Validation failed, bad private or alias key!"
+	if (validation == "1") {
+		Homey.ManagerSettings.set('pushsafervalidation', validatedSuccess);
+	} else if (validation == "0") {
+		Homey.ManagerSettings.set('pushsafervalidation', validatedFailed);
+	}
+}
+
+module.exports = MyApp;

@@ -1,51 +1,249 @@
 {
-    "id": "de.appzer.pushsafer",
-    "name": {
-        "en": "Pushsafer Notifications"
-    },
-    "version": "0.0.3",
-    "compatibility": "0.x || 1.x",
-    "author": {
-        "name": "Kevin Siml",
-        "email": "support@pushsafer.com"
-    },
-    "images": {
-      "large": "./assets/images/large.jpg",
-      "small": "./assets/images/small.jpg"
-    },
-    "category": "internet",
-    "description": {
-    "en": "Pushsafer notifications for Homey",
-	"de": "Pushsafer Benachrichtungen f�r Homey",
-    "nl": "Pushsafer notificatie voor Homey"
-    },
-    "permissions": ["homey:manager:ledring"
-    ],
-    "flow": {
-        "actions": [
-        {
-            "id": "pushsaferSend",
-            "title": {
-                "en": "Pushsafer notification",
-				"en": "Pushsafer Benachrichtungen",
-                "nl": "Pushsafer notificatie"
-            },
-            "args": [
-              {
-                  "name":"message",
-                  "type":"text",
-                  "placeholder":{
-                     "en":"Message",
-					 "de":"Nachricht",
-                     "nl":"Bericht"
-                  }
-               }
-            ]
-        }
-      ]
-    },
-    "dependencies": {
-    		"pushsafer-notifications": "*",
-    		"http.min": "*"
-    }
+	"id": "de.appzer.pushsafer",
+	"sdk": 2,
+	"name": {
+		"en": "Pushsafer Notification",
+		"de": "Pushsafer Benachrichtigung",
+		"nl": "Pushsafer notificatie"
+	},
+	
+	"description": {
+		"en": "Pushsafer notifications for Homey with Image support",
+		"de": "Pushsafer Benachrichtigungen für Homey mit Bild",
+		"nl": "Pushsafer notificatie voor Homey met afbeelding"	
+	},
+	"images": {
+	  "large": "./assets/images/large.jpg",
+	  "small": "./assets/images/small.jpg"
+	},
+	"category": "tools",
+	"version": "0.0.4",
+	"compatibility": ">=1.5.0",
+	"author": {
+		"name": "Kevin Siml",
+		"email": "info@appzer.de"
+	},
+	"permissions": ["homey:manager:ledring"
+	],
+	"flow": {
+		"actions": [
+		  {
+			"id": "pushsaferSend",
+			"title": {
+				"en": "Pushsafer notification",
+				"de": "Pushsafer Benachrichtigung",
+				"nl": "Pushsafer notificatie"
+			},
+			"args": [
+				{
+				  "name":"message",
+				  "type":"text",
+				  "placeholder":{
+					"en":"Message",
+					"de":"Nachricht",
+					"nl":"Bericht"
+				  }
+				},
+				{
+				  "name":"title",
+				  "type":"text",
+				  "placeholder":{
+					"en":"Title",
+					"de":"Titel",
+					"nl":"Titel"
+				  }
+				},
+				{
+				  "name":"device",
+				  "type":"text",
+				  "placeholder":{
+					"en":"Device or Device Group ID",
+					"de":"Geräte oder Geräte Gruppen ID",
+					"nl":"Apparaat- of apparaatgroep-ID"
+				  }
+				},
+				{
+				  "name":"icon",
+				  "type":"number",
+				  "min": 1,
+				  "max": 176,
+				  "step": 1,
+				  "placeholder":{
+					"en":"Icon ID (1-176)",
+					"de":"Icon ID (1-176)",
+					"nl":"Icon ID (1-176)"
+				  }
+				},
+				{
+				  "name":"iconcolor",
+				  "type":"color"
+				},				
+				{
+				  "name":"sound",
+				  "type":"number",
+				  "min": 0,
+				  "max": 50,
+				  "step": 1,
+				  "placeholder":{
+					"en":"Sound ID (empty or 0-50)",
+					"de":"Sound ID (leer oder 0-50)",
+					"nl":"Geluid ID (leeg of 0-50)"
+				  }
+				},
+				{
+				  "name":"vibration",
+				  "type":"number",
+				  "placeholder":{
+					"en":"Vibration (0-3)",
+					"de":"Vibration (0-3)",
+					"nl":"Vibratie (0-3)"
+				  }
+				},
+				{
+				  "name":"url",
+				  "type":"text",
+				  "placeholder":{
+					"en":"URL (f.e. https://www.pushsafer.com)",
+					"de":"URL (z.B. https://www.pushsafer.com)",
+					"nl":"URL (bijv. https://www.pushsafer.com)"
+				  }
+				},
+				{
+				  "name":"urltitle",
+				  "type":"text",
+				  "placeholder":{
+					"en":"Title of URL",
+					"de":"Titel der URL",
+					"nl":"Titel van URL"
+				  }
+				}
+				,
+				{
+				  "name":"time2live",
+				  "type":"number",
+				  "placeholder":{
+					"en":"Time to Live Integer number 0-43200",
+					"de":"Time to Live Ganzzahl 0-43200",
+					"nl":"Time to Live Geheel getal 0-43200"
+				  }
+				}
+			]
+		},
+		{
+		  "id": "pushsaferSendImage",
+		  "title": {
+			  "en": "Pushsafer Image",
+			  "de": "Pushsafer Bild",
+			  "nl": "Pushsafer Foto"
+		  },
+		  "args": [
+			{
+				"name":"imageurl",
+				"type":"text",
+				"placeholder":{
+				  "en":"Image URL",
+				  "de":"Bild URL",
+				  "nl":"Foto URL"
+				}
+			},
+			{
+				"name":"message",
+				"type":"text",
+				"placeholder":{
+				  "en":"Message",
+				  "de":"Nachricht",
+				  "nl":"Bericht"
+				}
+			},
+			{
+				"name":"title",
+				"type":"text",
+				"placeholder":{
+				  "en":"Title",
+				  "de":"Titel",
+				  "nl":"Titel"
+				}
+			},
+			{
+				"name":"device",
+				"type":"text",
+				"placeholder":{
+					"en":"Device or Device Group ID",
+					"de":"Geräte oder Geräte Gruppen ID",
+					"nl":"Apparaat- of apparaatgroep-ID"
+				}
+			},
+			{
+				"name":"icon",
+				"type":"number",
+				"min": 1,
+				"max": 176,
+				"step": 1,
+				"placeholder":{
+					"en":"Icon ID (1-176)",
+					"de":"Icon ID (1-176)",
+					"nl":"Icon ID (1-176)"
+				}
+			},
+			{
+				"name":"iconcolor",
+				"type":"color"
+			},				
+			{
+				"name":"sound",
+				"type":"number",
+				"min": 0,
+				"max": 50,
+				"step": 1,
+				"placeholder":{
+					"en":"Sound ID (empty or 0-50)",
+					"de":"Sound ID (leer oder 0-50)",
+					"nl":"Geluid ID (leeg of 0-50)"
+				}
+			},
+			{
+				"name":"vibration",
+				"type":"number",
+				"placeholder":{
+					"en":"Vibration (0-3)",
+					"de":"Vibration (0-3)",
+					"nl":"Vibratie (0-3)"
+				}
+			},
+			{
+				"name":"url",
+				"type":"text",
+				"placeholder":{
+					"en":"URL (f.e. https://www.pushsafer.com)",
+					"de":"URL (z.B. https://www.pushsafer.com)",
+					"nl":"URL (bijv. https://www.pushsafer.com)"
+				}
+			},
+			{
+				"name":"urltitle",
+				"type":"text",
+				"placeholder":{
+					"en":"Title of URL",
+					"de":"Titel der URL",
+					"nl":"Titel van URL"
+				 }
+			},
+			{
+				"name":"time2live",
+				"type":"text",
+				"placeholder":{
+					"en":"Time to Live Integer number 0-43200",
+					"de":"Time to Live Ganzzahl 0-43200",
+					"nl":"Time to Live Geheel getal 0-43200"
+				}
+			}
+		  ]
+		}
+	  ]
+	},
+	"dependencies": {
+		"pushsafer-notifications": "*",
+		"http.min": "*",
+		"requests": "*"
+	}
 }
