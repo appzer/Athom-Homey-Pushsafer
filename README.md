@@ -11,6 +11,9 @@ This app lets you send [pushsafer.com](https://www.pushsafer.com/) notifications
 
 ### Changelog
 
+0.0.5
+- fix SVG icon
+
 0.0.4
 - Homey SDK v2 ready
 - image support
