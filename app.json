@@ -116,8 +116,7 @@
 					"de":"Titel der URL",
 					"nl":"Titel van URL"
 				  }
-				}
-				,
+				},
 				{
 				  "name":"time2live",
 				  "type":"number",
@@ -126,8 +125,7 @@
 					"de":"Time to Live Ganzzahl 0-43200",
 					"nl":"Time to Live Geheel getal 0-43200"
 				  }
-				}
-				,
+				},
 				{
 				  "name":"priority",
 				  "type":"number",
@@ -136,8 +134,7 @@
 					"de":"Priorität -2, -1, 0, 1, 2",
 					"nl":"prioriteit -2, -1, 0, 1, 2"
 				  }
-				}
-				,
+				},
 				{
 				  "name":"retry",
 				  "type":"number",
@@ -146,8 +143,7 @@
 					"de":"Erneut senden 60-10800",
 					"nl":"opnieuw versturen 60-10800"
 				  }
-				}
-				,
+				},
 				{
 				  "name":"expire",
 				  "type":"number",
@@ -156,8 +152,7 @@
 					"de":"Verfall 60-10800",
 					"nl":"vervallen 60-10800"
 				  }
-				}
-				,
+				},
 				{
 				  "name":"answer",
 				  "type":"number",
@@ -276,8 +271,7 @@
 					"de":"Time to Live Ganzzahl 0-43200",
 					"nl":"Time to Live Geheel getal 0-43200"
 				}
-			}
-			,
+			},
 			{
 			  "name":"priority",
 			  "type":"number",
@@ -286,8 +280,7 @@
 				"de":"Priorität -2, -1, 0, 1, 2",
 				"nl":"prioriteit -2, -1, 0, 1, 2"
 			  }
-			}
-			,
+			},
 			{
 			  "name":"retry",
 			  "type":"number",
@@ -296,8 +289,7 @@
 				"de":"Erneut senden 60-10800",
 				"nl":"opnieuw versturen 60-10800"
 			  }
-			}
-			,
+			},
 			{
 			  "name":"expire",
 			  "type":"number",
@@ -306,8 +298,7 @@
 				"de":"Verfall 60-10800",
 				"nl":"vervallen 60-10800"
 			  }
-			}
-			,
+			},
 			{
 			  "name":"answer",
 			  "type":"number",
