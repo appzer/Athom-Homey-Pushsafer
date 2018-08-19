@@ -44,8 +44,12 @@ class MyApp extends Homey.App {
 				let url = args.url;
 				let urltitle = args.urltitle;
 				let time2live = args.time2live;
+				let priority = args.priority;
+				let retry = args.retry;
+				let expire = args.expire;
+				let answer = args.answer;
 				if (typeof pMessage == 'undefined' || pMessage == null || pMessage == '') return new Error("Message can not be empty");
-				return pushsaferSend(tempUser, pMessage, title, device, icon, iconcolor, sound, vibration, url, urltitle, time2live, '');
+				return pushsaferSend(tempUser, pMessage, title, device, icon, iconcolor, sound, vibration, url, urltitle, time2live, priority, retry, expire, answer, '');
 		})
 
 		let sendImage = new Homey.FlowCardAction('pushsaferSendImage');
@@ -64,6 +68,10 @@ class MyApp extends Homey.App {
 				let url = args.url;
 				let urltitle = args.urltitle;
 				let time2live = args.time2live;
+				let priority = args.priority;
+				let retry = args.retry;
+				let expire = args.expire;
+				let answer = args.answer;
 				if (typeof pMessage == 'undefined' || pMessage == null || pMessage == '') return new Error("Message can not be empty");
 				
 				let imageurl = args.imageurl;
@@ -72,7 +80,7 @@ class MyApp extends Homey.App {
 					if (!error && response.statusCode == 200) {
 						let base64ImageData = "data:" + response.headers["content-type"] + ";base64," + new Buffer(body).toString('base64');
 						console.log('ImageData:'+base64ImageData);
-						return pushsaferSend(tempUser, pMessage, title, device, icon, iconcolor, sound, vibration, url, urltitle, time2live, base64ImageData);
+						return pushsaferSend(tempUser, pMessage, title, device, icon, iconcolor, sound, vibration, url, urltitle, time2live, priority, retry, expire, answer, base64ImageData);
 					} else {
 						console.log(error)
 					}
@@ -82,7 +90,7 @@ class MyApp extends Homey.App {
 }
 
 // Send notification with parameters
-function pushsaferSend(pUser, pMessage, title, device, icon, iconcolor, sound, vibration, url, urltitle, time2live, image) {
+function pushsaferSend(pUser, pMessage, title, device, icon, iconcolor, sound, vibration, url, urltitle, time2live, priority, retry, expire, answer, image) {
 	if (pUser != "") {
 
 		let p = new push({
@@ -106,6 +114,10 @@ function pushsaferSend(pUser, pMessage, title, device, icon, iconcolor, sound, v
 			u: url,
 			ut: urltitle,
 			l: time2live,
+			pr: priority,
+			re: retry,
+			ex: expire,
+			a: answer,
 			p: image
 		};
 
