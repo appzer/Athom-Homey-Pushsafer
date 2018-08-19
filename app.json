@@ -17,7 +17,7 @@
 	  "small": "./assets/images/small.jpg"
 	},
 	"category": "tools",
-	"version": "0.0.5",
+	"version": "0.0.8",
 	"compatibility": ">=1.5.0",
 	"author": {
 		"name": "Kevin Siml",
@@ -125,6 +125,46 @@
 					"en":"Time to Live Integer number 0-43200",
 					"de":"Time to Live Ganzzahl 0-43200",
 					"nl":"Time to Live Geheel getal 0-43200"
+				  }
+				}
+				,
+				{
+				  "name":"priority",
+				  "type":"number",
+				  "placeholder":{
+					"en":"Priority -2, -1, 0, 1, 2",
+					"de":"Priorität -2, -1, 0, 1, 2",
+					"nl":"prioriteit -2, -1, 0, 1, 2"
+				  }
+				}
+				,
+				{
+				  "name":"retry",
+				  "type":"number",
+				  "placeholder":{
+					"en":"Retry 60-1080",
+					"de":"Erneut senden 60-10800",
+					"nl":"opnieuw versturen 60-10800"
+				  }
+				}
+				,
+				{
+				  "name":"expire",
+				  "type":"number",
+				  "placeholder":{
+					"en":"Expire 60-1080",
+					"de":"Verfall 60-10800",
+					"nl":"vervallen 60-10800"
+				  }
+				}
+				,
+				{
+				  "name":"answer",
+				  "type":"number",
+				  "placeholder":{
+					"en":"Answer 1 or leave blank",
+					"de":"Antwort 1 oder leer lassen",
+					"nl":"Antwoord 1 of laat leeg"
 				  }
 				}
 			]
@@ -236,6 +276,46 @@
 					"de":"Time to Live Ganzzahl 0-43200",
 					"nl":"Time to Live Geheel getal 0-43200"
 				}
+			}
+			,
+			{
+			  "name":"priority",
+			  "type":"number",
+			  "placeholder":{
+				"en":"Priority -2, -1, 0, 1, 2",
+				"de":"Priorität -2, -1, 0, 1, 2",
+				"nl":"prioriteit -2, -1, 0, 1, 2"
+			  }
+			}
+			,
+			{
+			  "name":"retry",
+			  "type":"number",
+			  "placeholder":{
+				"en":"Retry 60-1080",
+				"de":"Erneut senden 60-10800",
+				"nl":"opnieuw versturen 60-10800"
+			  }
+			}
+			,
+			{
+			  "name":"expire",
+			  "type":"number",
+			  "placeholder":{
+				"en":"Expire 60-1080",
+				"de":"Verfall 60-10800",
+				"nl":"vervallen 60-10800"
+			  }
+			}
+			,
+			{
+			  "name":"answer",
+			  "type":"number",
+			  "placeholder":{
+				"en":"Answer 1 or leave blank",
+				"de":"Antwort 1 oder leer lassen",
+				"nl":"Antwoord 1 of laat leeg"
+			  }
 			}
 		  ]
 		}
