@@ -21,6 +21,10 @@ This app lets you send [pushsafer.com](https://www.pushsafer.com/) notifications
 8. URL
 9. Title of URL
 10. Time To Live (0-43200)
+11. Priority (-2, -1, 0, 1, 2)
+12. Retry (in Seconds (60-10800 in 60 steps)
+13. Expire (in Seconds (60-10800 in 60 steps)
+14. Answer (1 or leave blank)
 
 #### Pushsafer Image
 1. URL of Image
@@ -34,11 +38,17 @@ This app lets you send [pushsafer.com](https://www.pushsafer.com/) notifications
 9. URL
 10. Title of URL
 11. Time To Live (0-43200)
+11. Priority (-2, -1, 0, 1, 2)
+12. Retry (in Seconds (60-10800 in 60 steps)
+13. Expire (in Seconds (60-10800 in 60 steps)
+14. Answer (1 or leave blank)
 
 ### Open Homey iOS or Android APP out of Pushsafer.com Client APP
 enter **athomhomey://** in **URL** and **Open Homey** in **URL Title**
 
 ### Changelog
+0.0.6
+- add new parameters (priority, retry, expire, answer)
 
 0.0.5
 - fix SVG icon
