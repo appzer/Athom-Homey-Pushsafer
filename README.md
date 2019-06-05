@@ -51,8 +51,10 @@ enter **athomhomey://** in **URL** and **Open Homey** in **URL Title**
 - add brand Color
 
 0.0.8
+- fixed some issues
 
 0.0.7
+- fixed some issues
 
 0.0.6
 - add new parameters (priority, retry, expire, answer)
