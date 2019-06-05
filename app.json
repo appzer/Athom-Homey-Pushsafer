@@ -17,7 +17,7 @@
 	  "small": "./assets/images/small.jpg"
 	},
 	"category": "tools",
-	"version": "0.0.8",
+	"version": "0.0.9",
 	"compatibility": ">=1.5.0",
 	"brandColor": "#074a82",
 	"author": {
@@ -67,12 +67,12 @@
 				  "name":"icon",
 				  "type":"number",
 				  "min": 1,
-				  "max": 176,
+				  "max": 177,
 				  "step": 1,
 				  "placeholder":{
-					"en":"Icon ID (1-176)",
-					"de":"Icon ID (1-176)",
-					"nl":"Icon ID (1-176)"
+					"en":"Icon ID (1-177)",
+					"de":"Icon ID (1-177)",
+					"nl":"Icon ID (1-177)"
 				  }
 				},
 				{
@@ -83,12 +83,12 @@
 				  "name":"sound",
 				  "type":"number",
 				  "min": 0,
-				  "max": 50,
+				  "max": 60,
 				  "step": 1,
 				  "placeholder":{
-					"en":"Sound ID (empty or 0-50)",
-					"de":"Sound ID (leer oder 0-50)",
-					"nl":"Geluid ID (leeg of 0-50)"
+					"en":"Sound ID (empty or 0-60)",
+					"de":"Sound ID (leer oder 0-60)",
+					"nl":"Geluid ID (leeg of 0-60)"
 				  }
 				},
 				{
@@ -140,27 +140,27 @@
 				  "name":"retry",
 				  "type":"number",
 				  "placeholder":{
-					"en":"Retry 60-1080",
-					"de":"Erneut senden 60-10800",
-					"nl":"opnieuw versturen 60-10800"
+					"en":"Retry 60-1080 or 0 = deactivated",
+					"de":"Erneut senden 60-10800 oder 0 = deaktivert",
+					"nl":"opnieuw versturen 60-10800 of 0 = gedeactiveerd"
 				  }
 				},
 				{
 				  "name":"expire",
 				  "type":"number",
 				  "placeholder":{
-					"en":"Expire 60-1080",
-					"de":"Verfall 60-10800",
-					"nl":"vervallen 60-10800"
+					"en":"Expire 60-1080 or 0 = deactivated",
+					"de":"Verfall 60-10800 oder 0 = deaktivert",
+					"nl":"vervallen 60-10800 of 0 = gedeactiveerd"
 				  }
 				},
 				{
 				  "name":"answer",
 				  "type":"number",
 				  "placeholder":{
-					"en":"Answer 1 or leave blank",
-					"de":"Antwort 1 oder leer lassen",
-					"nl":"Antwoord 1 of laat leeg"
+					"en":"Answer 1 or 0k",
+					"de":"Antwort 1 oder 0",
+					"nl":"Antwoord 1 of 0"
 				  }
 				}
 			]
@@ -213,12 +213,12 @@
 				"name":"icon",
 				"type":"number",
 				"min": 1,
-				"max": 176,
+				"max": 177,
 				"step": 1,
 				"placeholder":{
-					"en":"Icon ID (1-176)",
-					"de":"Icon ID (1-176)",
-					"nl":"Icon ID (1-176)"
+					"en":"Icon ID (1-177)",
+					"de":"Icon ID (1-177)",
+					"nl":"Icon ID (1-177)"
 				}
 			},
 			{
@@ -229,12 +229,12 @@
 				"name":"sound",
 				"type":"number",
 				"min": 0,
-				"max": 50,
+				"max": 60,
 				"step": 1,
 				"placeholder":{
-					"en":"Sound ID (empty or 0-50)",
-					"de":"Sound ID (leer oder 0-50)",
-					"nl":"Geluid ID (leeg of 0-50)"
+					"en":"Sound ID (empty or 0-60)",
+					"de":"Sound ID (leer oder 0-60)",
+					"nl":"Geluid ID (leeg of 0-60)"
 				}
 			},
 			{
@@ -286,8 +286,8 @@
 			  "name":"retry",
 			  "type":"number",
 			  "placeholder":{
-				"en":"Retry 60-1080",
-				"de":"Erneut senden 60-10800",
+				"en":"Retry 60-1080 or 0 = deactivated",
+				"de":"Erneut senden 60-10800 oder 0 = deaktivert",
 				"nl":"opnieuw versturen 60-10800"
 			  }
 			},
@@ -295,18 +295,18 @@
 			  "name":"expire",
 			  "type":"number",
 			  "placeholder":{
-				"en":"Expire 60-1080",
-				"de":"Verfall 60-10800",
-				"nl":"vervallen 60-10800"
+				"en":"Expire 60-1080 or 0 = deactivated",
+				"de":"Verfall 60-10800 oder 0 = deaktivert",
+				"nl":"vervallen 60-10800 of 0 = gedeactiveerd"
 			  }
 			},
 			{
 			  "name":"answer",
 			  "type":"number",
 			  "placeholder":{
-				"en":"Answer 1 or leave blank",
-				"de":"Antwort 1 oder leer lassen",
-				"nl":"Antwoord 1 of laat leeg"
+				"en":"Answer 1 or 0",
+				"de":"Antwort 1 oder 0",
+				"nl":"Antwoord 1 of 0"
 			  }
 			}
 		  ]
