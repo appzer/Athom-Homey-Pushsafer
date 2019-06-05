@@ -47,6 +47,13 @@ This app lets you send [pushsafer.com](https://www.pushsafer.com/) notifications
 enter **athomhomey://** in **URL** and **Open Homey** in **URL Title**
 
 ### Changelog
+0.0.9
+- add brand Color
+
+0.0.8
+
+0.0.7
+
 0.0.6
 - add new parameters (priority, retry, expire, answer)
 
