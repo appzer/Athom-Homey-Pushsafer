@@ -24,8 +24,7 @@
 		"name": "Kevin Siml",
 		"email": "info@appzer.de"
 	},
-	"permissions": ["homey:manager:ledring"
-	],
+	"permissions": ["homey:manager:ledring"],
 	"flow": {
 		"actions": [
 		  {
@@ -288,7 +287,7 @@
 			  "placeholder":{
 				"en":"Retry 60-1080 or 0 = deactivated",
 				"de":"Erneut senden 60-10800 oder 0 = deaktivert",
-				"nl":"opnieuw versturen 60-10800"
+				"nl":"opnieuw versturen 60-10800 of 0 = gedeactiveerd"
 			  }
 			},
 			{
