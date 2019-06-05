@@ -19,6 +19,7 @@
 	"category": "tools",
 	"version": "0.0.8",
 	"compatibility": ">=1.5.0",
+	"brandColor": "#074a82",
 	"author": {
 		"name": "Kevin Siml",
 		"email": "info@appzer.de"
