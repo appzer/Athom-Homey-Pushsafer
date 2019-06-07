@@ -125,12 +125,12 @@ function pushsaferSend(pUser, pMessage, title, device, icon, iconcolor, sound, v
 		p.send(msg, function (err, result) {
 			if (err) {
 				if (ledringPreference == true) {
-					LedAnimate("red", 3000);
+					showError();
 				}
 				throw err;
 			} else {
 				if (ledringPreference == true) {
-					LedAnimate("green", 3000);
+					showSuccess();
 				}
 			}
 			console.log(result);
@@ -139,7 +139,7 @@ function pushsaferSend(pUser, pMessage, title, device, icon, iconcolor, sound, v
 		});
 	} else {
 		if (ledringPreference == true) {
-			LedAnimate("red", 3000);
+			showError();
 		}
 	}
 }
