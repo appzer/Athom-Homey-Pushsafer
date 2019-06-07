@@ -44,9 +44,12 @@ This app lets you send [pushsafer.com](https://www.pushsafer.com/) notifications
 14. Answer (1 or 0 = deactivated)
 
 ### Open Homey iOS or Android APP out of Pushsafer.com Client APP
-enter **athomhomey://** in **URL** and **Open Homey** in **URL Title**
+enter **homey://** in **URL** and **Open Homey** in **URL Title**
 
 ### Changelog
+0.1.1
+- fix LEDRingAnimation issue
+
 0.0.9
 - add brand Color
 
