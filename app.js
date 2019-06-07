@@ -1,6 +1,7 @@
 'use strict';
 
 const Homey = require('homey');
+const { showError, showSuccess } = require('./src/visuals/LEDRingAnimations');
 let push = require('pushsafer-notifications');
 let http = require('http.min');
 let request = require('request').defaults({ "strictSSL": false, "encoding": null });
