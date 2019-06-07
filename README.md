@@ -47,7 +47,7 @@ This app lets you send [pushsafer.com](https://www.pushsafer.com/) notifications
 enter **homey://** in **URL** and **Open Homey** in **URL Title**
 
 ### Changelog
-0.1.1
+0.1.2
 - fix LEDRingAnimation issue
 
 0.0.9
