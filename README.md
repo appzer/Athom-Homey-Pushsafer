@@ -1,4 +1,5 @@
 # Athom-Homey-Pushsafer
+![Athom Homey](https://www.pushsafer.com/de/assets/images/athom-homey.jpg)
 ![Pushsafer](https://www.pushsafer.com/de/assets/logos/logo.png)
 
 # Pushsafer notifications for Athom Homey
