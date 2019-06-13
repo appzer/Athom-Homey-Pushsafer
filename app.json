@@ -38,6 +38,11 @@
 				{
 				  "name":"message",
 				  "type":"text",
+				  "title":{
+					"en":"Message",
+					"de":"Nachricht",
+					"nl":"Bericht"
+				  },
 				  "placeholder":{
 					"en":"Message",
 					"de":"Nachricht",
@@ -47,6 +52,11 @@
 				{
 				  "name":"title",
 				  "type":"text",
+				  "title":{
+					"en":"Title",
+					"de":"Titel",
+					"nl":"Titel"
+				  },
 				  "placeholder":{
 					"en":"Title",
 					"de":"Titel",
@@ -56,6 +66,11 @@
 				{
 				  "name":"device",
 				  "type":"text",
+				  "title":{
+					"en":"Device",
+					"de":"Geräte",
+					"nl":"Apparaat"
+				  },
 				  "placeholder":{
 					"en":"Device or Device Group ID",
 					"de":"Geräte oder Geräte Gruppen ID",
@@ -68,6 +83,11 @@
 				  "min": 1,
 				  "max": 177,
 				  "step": 1,
+				  "title":{
+					"en":"Icon",
+					"de":"Icon",
+					"nl":"Icon"
+				  },
 				  "placeholder":{
 					"en":"Icon ID (1-177)",
 					"de":"Icon ID (1-177)",
@@ -76,7 +96,12 @@
 				},
 				{
 				  "name":"iconcolor",
-				  "type":"color"
+				  "type":"color",
+				  "title":{
+					"en":"Icon Color",
+					"de":"Icon Farbe",
+					"nl":"Icon Kleur"
+				  }
 				},				
 				{
 				  "name":"sound",
@@ -84,15 +109,25 @@
 				  "min": 0,
 				  "max": 60,
 				  "step": 1,
+				  "title":{
+					"en":"Sound",
+					"de":"Sound",
+					"nl":"Geluid"
+				  },
 				  "placeholder":{
-					"en":"Sound ID (empty or 0-60)",
-					"de":"Sound ID (leer oder 0-60)",
-					"nl":"Geluid ID (leeg of 0-60)"
+					"en":"Sound ID (0-60)",
+					"de":"Sound ID (0-60)",
+					"nl":"Geluid ID (0-60)"
 				  }
 				},
 				{
 				  "name":"vibration",
 				  "type":"number",
+				  "title":{
+					"en":"Vibration",
+					"de":"Vibration",
+					"nl":"Vibratie"
+				  },
 				  "placeholder":{
 					"en":"Vibration (0-3)",
 					"de":"Vibration (0-3)",
@@ -102,6 +137,11 @@
 				{
 				  "name":"url",
 				  "type":"text",
+				  "title":{
+					"en":"URL",
+					"de":"URL",
+					"nl":"URL"
+				  },
 				  "placeholder":{
 					"en":"URL (f.e. https://www.pushsafer.com)",
 					"de":"URL (z.B. https://www.pushsafer.com)",
@@ -111,6 +151,11 @@
 				{
 				  "name":"urltitle",
 				  "type":"text",
+				  "title":{
+					"en":"URL Title",
+					"de":"URL Titel",
+					"nl":"URL Titel"
+				  },
 				  "placeholder":{
 					"en":"Title of URL",
 					"de":"Titel der URL",
@@ -120,6 +165,11 @@
 				{
 				  "name":"time2live",
 				  "type":"number",
+				  "title":{
+					"en":"Time to Live",
+					"de":"Time to Live",
+					"nl":"Time to Live"
+				  },
 				  "placeholder":{
 					"en":"Time to Live Integer number 0-43200",
 					"de":"Time to Live Ganzzahl 0-43200",
@@ -129,24 +179,39 @@
 				{
 				  "name":"priority",
 				  "type":"number",
+				  "title":{
+					"en":"Priority",
+					"de":"Priorität",
+					"nl":"Prioriteit"
+				  },
 				  "placeholder":{
 					"en":"Priority -2, -1, 0, 1, 2",
 					"de":"Priorität -2, -1, 0, 1, 2",
-					"nl":"prioriteit -2, -1, 0, 1, 2"
+					"nl":"Prioriteit -2, -1, 0, 1, 2"
 				  }
 				},
 				{
 				  "name":"retry",
 				  "type":"number",
+				  "title":{
+					"en":"Retry",
+					"de":"Erneut senden",
+					"nl":"Opnieuw versturen"
+				  },
 				  "placeholder":{
 					"en":"Retry 60-1080 or 0 = deactivated",
 					"de":"Erneut senden 60-10800 oder 0 = deaktivert",
-					"nl":"opnieuw versturen 60-10800 of 0 = gedeactiveerd"
+					"nl":"Opnieuw versturen 60-10800 of 0 = gedeactiveerd"
 				  }
 				},
 				{
 				  "name":"expire",
 				  "type":"number",
+				  "title":{
+					"en":"Expire",
+					"de":"Verfall",
+					"nl":"Vervallen"
+				  },
 				  "placeholder":{
 					"en":"Expire 60-1080 or 0 = deactivated",
 					"de":"Verfall 60-10800 oder 0 = deaktivert",
@@ -156,8 +221,13 @@
 				{
 				  "name":"answer",
 				  "type":"number",
+				  "title":{
+					"en":"Answer",
+					"de":"Antwort",
+					"nl":"Antwoord"
+				  },
 				  "placeholder":{
-					"en":"Answer 1 or 0k",
+					"en":"Answer 1 or 0",
 					"de":"Antwort 1 oder 0",
 					"nl":"Antwoord 1 of 0"
 				  }
@@ -175,6 +245,11 @@
 			{
 				"name":"imageurl",
 				"type":"text",
+				"title":{
+				  "en":"Image URL",
+				  "de":"Bild URL",
+				  "nl":"Foto URL"
+				},
 				"placeholder":{
 				  "en":"Image URL",
 				  "de":"Bild URL",
@@ -184,6 +259,11 @@
 			{
 				"name":"message",
 				"type":"text",
+				"title":{
+				  "en":"Message",
+				  "de":"Nachricht",
+				  "nl":"Bericht"
+				},
 				"placeholder":{
 				  "en":"Message",
 				  "de":"Nachricht",
@@ -193,6 +273,11 @@
 			{
 				"name":"title",
 				"type":"text",
+				"title":{
+				  "en":"Title",
+				  "de":"Titel",
+				  "nl":"Titel"
+				},
 				"placeholder":{
 				  "en":"Title",
 				  "de":"Titel",
@@ -202,6 +287,11 @@
 			{
 				"name":"device",
 				"type":"text",
+				"title":{
+					"en":"Device",
+					"de":"Gerät",
+					"nl":"Apparaat"
+				},
 				"placeholder":{
 					"en":"Device or Device Group ID",
 					"de":"Geräte oder Geräte Gruppen ID",
@@ -214,6 +304,11 @@
 				"min": 1,
 				"max": 177,
 				"step": 1,
+				"title":{
+					"en":"Icon",
+					"de":"Icon",
+					"nl":"Icon"
+				},
 				"placeholder":{
 					"en":"Icon ID (1-177)",
 					"de":"Icon ID (1-177)",
@@ -222,7 +317,12 @@
 			},
 			{
 				"name":"iconcolor",
-				"type":"color"
+				"type":"color",
+				"title":{
+					"en":"Icon Color",
+					"de":"Icon Color",
+					"nl":"Icon Color"
+				}
 			},				
 			{
 				"name":"sound",
@@ -230,6 +330,11 @@
 				"min": 0,
 				"max": 60,
 				"step": 1,
+				"title":{
+					"en":"Sound",
+					"de":"Sound",
+					"nl":"Geluid"
+				},
 				"placeholder":{
 					"en":"Sound ID (empty or 0-60)",
 					"de":"Sound ID (leer oder 0-60)",
@@ -239,6 +344,11 @@
 			{
 				"name":"vibration",
 				"type":"number",
+				"title":{
+					"en":"Vibration",
+					"de":"Vibration",
+					"nl":"Vibratie"
+				},
 				"placeholder":{
 					"en":"Vibration (0-3)",
 					"de":"Vibration (0-3)",
@@ -248,6 +358,11 @@
 			{
 				"name":"url",
 				"type":"text",
+				"title":{
+					"en":"URL",
+					"de":"URL",
+					"nl":"URL"
+				},
 				"placeholder":{
 					"en":"URL (f.e. https://www.pushsafer.com)",
 					"de":"URL (z.B. https://www.pushsafer.com)",
@@ -257,6 +372,11 @@
 			{
 				"name":"urltitle",
 				"type":"text",
+				"title":{
+					"en":"URL Title",
+					"de":"URL Titel",
+					"nl":"URL Titel"
+				 },
 				"placeholder":{
 					"en":"Title of URL",
 					"de":"Titel der URL",
@@ -266,6 +386,11 @@
 			{
 				"name":"time2live",
 				"type":"text",
+				"title":{
+					"en":"Time to Live",
+					"de":"Time to Live",
+					"nl":"Time to Live"
+				},
 				"placeholder":{
 					"en":"Time to Live Integer number 0-43200",
 					"de":"Time to Live Ganzzahl 0-43200",
@@ -275,33 +400,53 @@
 			{
 			  "name":"priority",
 			  "type":"number",
+			  "title":{
+				"en":"Priority",
+				"de":"Priorität",
+				"nl":"Prioriteit"
+			  },
 			  "placeholder":{
 				"en":"Priority -2, -1, 0, 1, 2",
 				"de":"Priorität -2, -1, 0, 1, 2",
-				"nl":"prioriteit -2, -1, 0, 1, 2"
+				"nl":"Prioriteit -2, -1, 0, 1, 2"
 			  }
 			},
 			{
 			  "name":"retry",
 			  "type":"number",
+			  "title":{
+				"en":"Retry",
+				"de":"Erneut senden",
+				"nl":"Opnieuw versturen"
+			  },
 			  "placeholder":{
 				"en":"Retry 60-1080 or 0 = deactivated",
 				"de":"Erneut senden 60-10800 oder 0 = deaktivert",
-				"nl":"opnieuw versturen 60-10800 of 0 = gedeactiveerd"
+				"nl":"Opnieuw versturen 60-10800 of 0 = gedeactiveerd"
 			  }
 			},
 			{
 			  "name":"expire",
 			  "type":"number",
+			  "title":{
+				"en":"Expire",
+				"de":"Verfall",
+				"nl":"Vervallen"
+			  },
 			  "placeholder":{
 				"en":"Expire 60-1080 or 0 = deactivated",
 				"de":"Verfall 60-10800 oder 0 = deaktivert",
-				"nl":"vervallen 60-10800 of 0 = gedeactiveerd"
+				"nl":"Vervallen 60-10800 of 0 = gedeactiveerd"
 			  }
 			},
 			{
 			  "name":"answer",
 			  "type":"number",
+			  "title":{
+				"en":"Answer",
+				"de":"Antwort",
+				"nl":"Antwoord"
+			  },
 			  "placeholder":{
 				"en":"Answer 1 or 0",
 				"de":"Antwort 1 oder 0",
