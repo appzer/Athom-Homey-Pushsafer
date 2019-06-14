@@ -49,7 +49,8 @@ enter **homey://** in **URL** and **Open Homey** in **URL Title**
 
 ### Changelog
 0.1.3
-- fixed some issues
+- fixed flow field label issue
+- add delay value for flows
 
 0.1.2
 - fix LEDRingAnimation issue
