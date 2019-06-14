@@ -48,7 +48,7 @@ This app lets you send [pushsafer.com](https://www.pushsafer.com/) notifications
 enter **homey://** in **URL** and **Open Homey** in **URL Title**
 
 ### Changelog
-0.1.3
+0.1.4
 - fixed flow field label issue
 - add delay value for flows
 
